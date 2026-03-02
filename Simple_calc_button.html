@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 260px;
+        }
+
+        .calculator h2 {
+            margin-bottom: 15px;
+        }
+
+        #display {
+            width: 100%;
+            height: 45px;
+            font-size: 18px;
+            text-align: right;
+            margin-bottom: 15px;
+            padding-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 45px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #e0e0e0;
+        }
+
+        button:hover {
+            background: #d1d1d1;
+        }
+
+        .operator {
+            background: #ff9800;
+            color: white;
+        }
+
+        .operator:hover {
+            background: #fb8c00;
+        }
+
+        .clear {
+            background: #f44336;
+            color: white;
+        }
+
+        .clear:hover {
+            background: #e53935;
+        }
+
+        .equal {
+            background: #4caf50;
+            color: white;
+        }
+
+        .equal:hover {
+            background: #43a047;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+
+        <input type="text" id="display" disabled>
+
+        <div class="buttons">
+            <button onclick="pressNumber(1)">1</button>
+            <button onclick="pressNumber(2)">2</button>
+            <button onclick="pressNumber(3)">3</button>
+            <button class="operator" onclick="setOperator('+')">+</button>
+
+            <button onclick="pressNumber(4)">4</button>
+            <button onclick="pressNumber(5)">5</button>
+            <button onclick="pressNumber(6)">6</button>
+            <button class="operator" onclick="setOperator('-')">-</button>
+
+            <button onclick="pressNumber(7)">7</button>
+            <button onclick="pressNumber(8)">8</button>
+            <button onclick="pressNumber(9)">9</button>
+            <button class="operator" onclick="setOperator('*')">×</button>
+
+            <button class="clear" onclick="clearAll()">C</button>
+            <button onclick="pressNumber(0)">0</button>
+            <button class="equal" onclick="calculate()">=</button>
+            <button class="operator" onclick="setOperator('/')">÷</button>
+        </div>
+    </div>
+
+    <script>
+        let firstNumber = "";
+        let secondNumber = "";
+        let operator = "";
+
+        function pressNumber(num) {
+            if (operator === "") {
+                firstNumber += num;
+                display.value = firstNumber;
+            } else {
+                secondNumber += num;
+                display.value = secondNumber;
+            }
+        }
+
+        function setOperator(op) {
+            if (firstNumber !== "") operator = op;
+        }
+
+        function calculate() {
+            let num1 = parseFloat(firstNumber);
+            let num2 = parseFloat(secondNumber);
+            let result;
+
+            if (operator === "+") result = num1 + num2;
+            else if (operator === "-") result = num1 - num2;
+            else if (operator === "*") result = num1 * num2;
+            else if (operator === "/") result = num2 !== 0 ? num1 / num2 : "Error";
+
+            display.value 
+        }

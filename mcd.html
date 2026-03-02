@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🍔 McDonald's Menu</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .category {
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🍔 McDonald's Menu</h1>
+
+<div class="menu" id="menu"></div>
+
+<script>
+  // ✅ JSON data stored in JavaScript
+  const menuData = [
+    {
+      id: 1,
+      name: "Big Mac",
+      price: 5.99,
+      category: "Burgers",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_BigMac_832x472",
+      desc: "Mouthwatering perfection. Two 100% beef patties."
+    },
+    {
+      id: 2,
+      name: "Quarter Pounder",
+      price: 6.39,
+      category: "Burgers",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_QuarterPounderwithCheese_832x472",
+      desc: "100% fresh beef, hot, deliciously juicy."
+    },
+    {
+      id: 3,
+      name: "World Famous Fries",
+      price: 2.99,
+      category: "Sides",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_MediumFrenchFries_832x472",
+      desc: "Golden on the outside, soft and fluffy on the inside."
+    },
+    {
+      id: 4,
+      name: "Chicken McNuggets",
+      price: 4.49,
+      category: "Chicken",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_10pcChickenMcNuggets_832x472",
+      desc: "Tender, juicy chicken breast meat in a tempura coating."
+    },
+    {
+      id: 5,
+      name: "Coca-Cola",
+      price: 1.99,
+      category: "Drinks",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_MediumCoke_832x472",
+      desc: "A cold, refreshing Coca-Cola®️ soda."
+    },
+    {
+      id: 6,
+      name: "Oreo McFlurry",
+      price: 3.29,
+      category: "Desserts",
+      image: "https://s7d1.scene7.com/is/image/mcdonalds/Header_OreoMcFlurry_832x472",
+      desc: "Creamy vanilla soft serve with crunchy OREO®️ pieces."
+    }
+  ];
+
+  // ✅ Select menu container
+  const menu = document.getElementById("menu");
+
+  // ✅ Loop through JSON and create cards
+  menuData.forEach(item => {
+    menu.innerHTML += `
+      <div class="card">
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <span class="category">${item.category}</span>
+        <p>${item.desc}</p>
+        <p class="price">$${item.price}</p>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>

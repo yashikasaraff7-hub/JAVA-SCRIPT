@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0eaea;
+            
+            padding-top: 50px;
+        }
+
+        h2 {
+            color: #925252;
+        }
+
+        #demo {
+            font-size: 20px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h2>What Can JavaScript Do?</h2>
+
+    <p id="demo">JavaScript can change HTML content.</p>
+
+    <button type="button"
+        onclick="document.getElementById('demo').innerHTML='Hello JavaScript!'">
+        Change Text
+    </button>
+
+    <button type="button"
+        onclick="document.getElementById('demo').style.fontSize='35px'">
+        Increase Size
+    </button>
+
+    <button type="button"
+        onclick="document.getElementById('demo').style.display='none'">
+        Hide
+    </button>
+
+    <button type="button"
+        onclick="document.getElementById('demo').style.display='block'">
+        Show
+    </button>
+<br><br><br>
+<img id="myImage" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXIweGJpNTNhbHh2MGp2amVnNzExem1mOXNndHNoNjlxazBjaDV4YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XaLnoepP2IwFnUXdvb/giphy.gif">
+<br><br><br>
+</body>
+</html>
